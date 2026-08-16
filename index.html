@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Itinerario Florida 24-26 Dic</title>
+  <style>
+    :root {
+      --bg-color: #f2f2f7;
+      --card-bg: #ffffff;
+      --text-main: #1c1c1e;
+      --text-sub: #8e8e93;
+      --border-color: #e5e5ea;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 16px;
+      line-height: 1.4;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
+
+    /* Stile per i giorni principali */
+    .day-container {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .day-summary {
+      padding: 16px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid transparent;
+    }
+
+    .day-container[open] > .day-summary {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .day-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Stile per le singole tappe */
+    .stop-container {
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stop-container:last-child {
+      border-bottom: none;
+    }
+
+    .stop-summary {
+      font-size: 15px;
+      font-weight: 500;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .stop-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .stop-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stop-time {
+      color: var(--text-sub);
+      font-size: 14px;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    /* Dettagli della tappa */
+    .stop-content {
+      padding: 16px;
+      font-size: 14px;
+      color: #3a3a3c;
+      background-color: var(--card-bg);
+    }
+
+    .stop-content p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .stop-content p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .distance-text {
+      color: var(--text-sub);
+      font-style: italic;
+    }
+
+    .links {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      font-size: 20px;
+    }
+
+    .links a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌴 Itinerario Florida 24-26 Dicembre ☀️</h1>
+
+  <!-- 24 DICEMBRE -->
+  <details class="day-container">
+    <summary class="day-summary"><span>🎄</span>&nbsp;Mercoledì 24 dic - Arrivo & Vigilia</summary>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🚗</span>Budget Fastbreak (MIA)</span>
+        <span class="stop-time">06:30 - 07:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Arrivo in aeroporto e ritiro rapido della vettura noleggiata presso lo sportello prioritario Budget Fastbreak, per ottimizzare i tempi e mettersi subito in marcia.</p>
+        <p class="distance-text">Distanza: --</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/Budget+Car+Rental,+Miami+International+Airport,+NW+21st+St,+Miami,+FL" target="_blank">📍</a>
+          <a href="https://www.budget.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🛒</span>Walmart Supercenter</span>
+        <span class="stop-time">07:30 - 08:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Sosta logistica per acquisto dell'alzatina (booster) auto, del setaccio (sand sifter) per i denti di squalo, oltre a una scorta di acqua e snack per il viaggio.</p>
+        <p class="distance-text">Distanza: 5.2 mi — 10 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/8651+NW+13th+Terrace,+Doral,+FL+33126" target="_blank">📍</a>
+          <a href="https://www.walmart.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🍔</span>Woody's River Roo</span>
+        <span class="stop-time">11:30 - 12:45</span>
+      </summary>
+      <div class="stop-content">
+        <p>Pausa pranzo rilassante dopo la guida sulla I-75. Un locale caratteristico, in perfetto stile tiki bar, situato direttamente sulle acque del fiume Manatee.</p>
+        <p class="distance-text">Distanza: 215 mi — 3h 15 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/5717+18th+St+E,+Ellenton,+FL+34222" target="_blank">📍</a>
+          <a href="https://www.woodysriverroo.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🛍️</span>Ellenton Premium Outlets</span>
+        <span class="stop-time">12:50 - 14:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Tappa strategica per shopping al Nike Clearance Store e approfittare delle ampie toilette del centro per un comodo cambio d'abito in vista della Messa.</p>
+        <p class="distance-text">Distanza: 1.2 mi — 4 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/5461+Factory+Shops+Blvd,+Ellenton,+FL+34222" target="_blank">📍</a>
+          <a href="https://www.premiumoutlets.com/outlet/ellenton" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>⛪</span>St. John Vianney Catholic Church</span>
+        <span class="stop-time">15:30 - 17:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Partecipazione alla sentita e suggestiva Messa della Vigilia di Natale delle ore 16:00. Arrivo anticipato per trovare parcheggio e posti a sedere.</p>
+        <p class="distance-text">Distanza: 28.5 mi — 45 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/445+82nd+Ave,+St+Pete+Beach,+FL+33706" target="_blank">📍</a>
+          <a href="https://stjohnspetebeach.org" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🛒</span>Publix Super Market</span>
+        <span class="stop-time">17:25 - 18:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Sosta al banco gastronomia per acquistare piatti pronti di ottima qualità. Questa tappa garantisce una cena di Vigilia senza stress in camera. (Chiusura ore 19:00).</p>
+        <p class="distance-text">Distanza: 1.1 mi — 3 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/4655+Gulf+Blvd,+St+Pete+Beach,+FL+33706" target="_blank">📍</a>
+          <a href="https://www.publix.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏨</span>Bilmar Beach Resort</span>
+        <span class="stop-time">18:25</span>
+      </summary>
+      <div class="stop-content">
+        <p>Check-in in assoluta tranquillità, scarico dei bagagli in stanza e inizio della vera serata di vacanza a Treasure Island.</p>
+        <p class="distance-text">Distanza: 3.8 mi — 8 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+  </details>
+
+  <!-- 25 DICEMBRE -->
+  <details class="day-container">
+    <summary class="day-summary"><span>🎅</span>&nbsp;Giovedì 25 dic - Natale a Clearwater</summary>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏖️</span>Mattinata al Bilmar</span>
+        <span class="stop-time">08:00 - 11:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Mattinata all'insegna della calma e della famiglia per festeggiare il Natale. Passeggiata sulla bellissima spiaggia di sabbia bianca e apertura dei regali.</p>
+        <p class="distance-text">Distanza: --</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🍽️</span>Ocean Seven @ The Hiatus Hotel</span>
+        <span class="stop-time">12:00 - 14:00</span>
+      </summary>
+      <div class="stop-content">
+        <p>Pranzo di Natale al 7° piano (Prenotazione OpenTable N. 35952). Tavolo all'aperto per gustare piatti a base di pesce con vista panoramica sul Golfo.</p>
+        <p class="distance-text">Distanza: 16.8 mi — 35 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/385+S+Gulfview+Blvd,+Clearwater,+FL+33767" target="_blank">📍</a>
+          <a href="https://www.hiatushotel.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🎡</span>Pier 60 & Clearwater Beach</span>
+        <span class="stop-time">14:00 - 16:00</span>
+      </summary>
+      <div class="stop-content">
+        <p>Piacevole passeggiata digestiva sul celebre pontile Pier 60 e lungo l'iconico lungomare di Clearwater. Ottimo per respirare a pieni polmoni l'aria del mare.</p>
+        <p class="distance-text">Distanza: 0.5 mi — 2 min a piedi</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/1+Causeway+Blvd,+Clearwater,+FL+33767" target="_blank">📍</a>
+          <a href="https://www.surfsidesunsents.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏨</span>Rientro al Bilmar</span>
+        <span class="stop-time">16:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Pomeriggio completamente libero da impegni: relax nella piscina del resort, tepore del tardo pomeriggio e tramonto spettacolare sull'oceano.</p>
+        <p class="distance-text">Distanza: 16.8 mi — 35 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+  </details>
+
+  <!-- 26 DICEMBRE -->
+  <details class="day-container">
+    <summary class="day-summary"><span>🏀</span>&nbsp;Venerdì 26 dic - Disney & NBA</summary>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏖️</span>Ultimo bagno al Bilmar</span>
+        <span class="stop-time">08:00 - 09:45</span>
+      </summary>
+      <div class="stop-content">
+        <p>Ultimo bagno nell'oceano e colazione rigenerante. Entro le 09:45 completamento del check-out, carico accurato dei bagagli nel baule e partenza verso Orlando.</p>
+        <p class="distance-text">Distanza: --</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏰</span>Disney Springs</span>
+        <span class="stop-time">11:30 - 15:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Svago assoluto e shopping al LEGO Store e World of Disney. Pranzo veloce consigliato al D-Luxe Burger, Polite Pig o Blaze Pizza.</p>
+        <p class="distance-text">Distanza: 95.8 mi — 1h 35 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/1486+Buena+Vista+Dr,+Orlando,+FL+32830" target="_blank">📍</a>
+          <a href="https://www.disneysprings.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🛍️</span>Nike Clearance Store</span>
+        <span class="stop-time">15:30 - 17:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Shopping focalizzato in questo store speciale per sconti formidabili. Segue cena veloce pre-partita. Tutti i pacchetti e zaini nascosti nel bagagliaio dell'auto prima di partire.</p>
+        <p class="distance-text">Distanza: 8.5 mi — 15 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/5209+International+Dr+Ste+A-C,+Orlando,+FL+32819" target="_blank">📍</a>
+          <a href="https://www.nike.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🅿️</span>Threatlocker Garage</span>
+        <span class="stop-time">18:00 - 18:15</span>
+      </summary>
+      <div class="stop-content">
+        <p>Arrivo e ingresso nel parcheggio prenotato (Riferimento: TL-122-14). Lasciate tutto in auto per una passeggiata di 5 minuti verso il palazzetto armati solo di biglietti.</p>
+        <p class="distance-text">Distanza: 9.2 mi — 20 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/122+S+Orange+Ave,+Orlando,+FL+32801" target="_blank">📍</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏀</span>Kia Center (Magic vs Raptors)</span>
+        <span class="stop-time">18:15 - 21:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Ingresso agevole grazie all'assenza di borse. Godetevi l'atmosfera vibrante del riscaldamento e l'intrattenimento pre-partita. Palla a due fissata per le 19:00.</p>
+        <p class="distance-text">Distanza: 0.3 mi — 5 min a piedi</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/400+W+Church+St,+Orlando,+FL+32801" target="_blank">📍</a>
+          <a href="https://www.kiacenter.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏨</span>Baymont by Wyndham</span>
+        <span class="stop-time">22:00</span>
+      </summary>
+      <div class="stop-content">
+        <p>Recuperata l'auto dal garage, brevissimo tragitto verso l'hotel per effettuare il check-in notturno e scaricare finalmente le valigie per riposare.</p>
+        <p class="distance-text">Distanza: 5.5 mi — 12 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/2500+W+33rd+St,+Orlando,+FL+32839" target="_blank">📍</a>
+          <a href="https://www.wyndhamhotels.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+  </details>
+
+</body>
+</html>
