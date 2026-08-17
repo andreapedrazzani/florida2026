@@ -3,55 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Itinerario Florida 24-26 Dic</title>
+  <title>Itinerario Florida 24-26 Dicembre</title>
   <style>
     :root {
-      --bg-color: #f2f2f7;
+      --bg-color: #f4f6f9;
       --card-bg: #ffffff;
       --text-main: #1c1c1e;
-      --text-sub: #8e8e93;
+      --text-sub: #5856d6;
       --border-color: #e5e5ea;
+      --accent-florida: #ff6b35;
+      --accent-sun: #ffbc42;
+      --accent-palm: #2ec4b6;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
+      background: linear-gradient(135deg, #f4f6f9 0%, #e9ecef 100%);
       color: var(--text-main);
       margin: 0;
       padding: 16px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     h1 {
       text-align: center;
-      font-size: 22px;
-      margin-top: 10px;
+      font-size: 24px;
+      margin-top: 12px;
       margin-bottom: 24px;
+      color: #0b2545;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
 
-    /* Stile per i giorni principali */
+    /* Stile per i contenitori dei giorni con richiamo ai colori Florida */
     .day-container {
       background-color: var(--card-bg);
-      border-radius: 12px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(11, 37, 69, 0.08);
       overflow: hidden;
+      border-left: 6px solid var(--accent-florida);
+      transition: all 0.3s ease;
+    }
+
+    .day-container:nth-child(2) {
+      border-left-color: var(--accent-sun);
+    }
+
+    .day-container:nth-child(3) {
+      border-left-color: var(--accent-palm);
     }
 
     .day-summary {
-      padding: 16px;
-      font-size: 17px;
-      font-weight: 600;
+      padding: 18px 16px;
+      font-size: 18px;
+      font-weight: 700;
       cursor: pointer;
       list-style: none;
       display: flex;
       align-items: center;
+      gap: 12px;
       background-color: var(--card-bg);
-      border-bottom: 1px solid transparent;
+      color: #0b2545;
     }
 
-    .day-container[open] > .day-summary {
-      border-bottom: 1px solid var(--border-color);
+    .day-summary span {
+      font-size: 24px; /* Icone grandi */
     }
 
     .day-summary::-webkit-details-marker {
@@ -63,17 +79,13 @@
       margin: 0;
       border-radius: 0;
       box-shadow: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .stop-container:last-child {
-      border-bottom: none;
+      border-top: 1px solid var(--border-color);
+      background-color: #fafbfc;
     }
 
     .stop-summary {
       font-size: 15px;
-      font-weight: 500;
-      background-color: #fafafa;
+      font-weight: 600;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -89,22 +101,34 @@
     .stop-title {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      color: #1d3557;
+    }
+
+    .stop-title span:first-child {
+      font-size: 22px; /* Icone grandi per le tappe */
+      min-width: 28px;
+      text-align: center;
     }
 
     .stop-time {
-      color: var(--text-sub);
-      font-size: 14px;
+      color: #e07a5f;
+      font-weight: 600;
+      font-size: 13px;
+      background: #fef1ed;
+      padding: 4px 8px;
+      border-radius: 6px;
       white-space: nowrap;
-      margin-left: 10px;
+      margin-left: 8px;
     }
 
     /* Dettagli della tappa */
     .stop-content {
       padding: 16px;
       font-size: 14px;
-      color: #3a3a3c;
+      color: #495057;
       background-color: var(--card-bg);
+      border-top: 1px dashed var(--border-color);
     }
 
     .stop-content p {
@@ -117,19 +141,26 @@
     }
 
     .distance-text {
-      color: var(--text-sub);
+      color: #6c757d;
       font-style: italic;
+      font-size: 13px;
     }
 
     .links {
-      margin-top: 12px;
+      margin-top: 14px;
       display: flex;
       gap: 16px;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .links a {
       text-decoration: none;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .links a:hover {
+      transform: scale(1.15);
     }
   </style>
 </head>
@@ -139,11 +170,11 @@
 
   <!-- 24 DICEMBRE -->
   <details class="day-container">
-    <summary class="day-summary"><span>🎄</span>&nbsp;Mercoledì 24 dic - Arrivo & Vigilia</summary>
+    <summary class="day-summary"><span>🎄</span> Mercoledì 24 dic - Arrivo & Vigilia</summary>
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🚗</span>Budget Fastbreak (MIA)</span>
+        <span class="stop-title"><span>🚗</span> Budget Fastbreak (MIA)</span>
         <span class="stop-time">06:30 - 07:15</span>
       </summary>
       <div class="stop-content">
@@ -158,7 +189,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🛒</span>Walmart Supercenter</span>
+        <span class="stop-title"><span>🛒</span> Walmart Supercenter</span>
         <span class="stop-time">07:30 - 08:15</span>
       </summary>
       <div class="stop-content">
@@ -173,7 +204,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🍔</span>Woody's River Roo</span>
+        <span class="stop-title"><span>🍔</span> Woody's River Roo</span>
         <span class="stop-time">11:30 - 12:45</span>
       </summary>
       <div class="stop-content">
@@ -188,7 +219,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🛍️</span>Ellenton Premium Outlets</span>
+        <span class="stop-title"><span>🛍️</span> Ellenton Premium Outlets</span>
         <span class="stop-time">12:50 - 14:30</span>
       </summary>
       <div class="stop-content">
@@ -203,7 +234,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>⛪</span>St. John Vianney Catholic Church</span>
+        <span class="stop-title"><span>⛪</span> St. John Vianney Catholic Church</span>
         <span class="stop-time">15:30 - 17:15</span>
       </summary>
       <div class="stop-content">
@@ -218,7 +249,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🛒</span>Publix Super Market</span>
+        <span class="stop-title"><span>🥡</span> Publix (Cena Vigilia)</span>
         <span class="stop-time">17:25 - 18:15</span>
       </summary>
       <div class="stop-content">
@@ -233,7 +264,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏨</span>Bilmar Beach Resort</span>
+        <span class="stop-title"><span>🏨</span> Bilmar Beach Resort</span>
         <span class="stop-time">18:25</span>
       </summary>
       <div class="stop-content">
@@ -249,11 +280,11 @@
 
   <!-- 25 DICEMBRE -->
   <details class="day-container">
-    <summary class="day-summary"><span>🎅</span>&nbsp;Giovedì 25 dic - Natale a Clearwater</summary>
+    <summary class="day-summary"><span>🎅</span> Giovedì 25 dic - Natale a Clearwater</summary>
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏖️</span>Mattinata al Bilmar</span>
+        <span class="stop-title"><span>🏖️</span> Mattinata al Bilmar</span>
         <span class="stop-time">08:00 - 11:15</span>
       </summary>
       <div class="stop-content">
@@ -268,7 +299,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🍽️</span>Ocean Seven @ The Hiatus Hotel</span>
+        <span class="stop-title"><span>🍽️</span> Ocean Seven @ The Hiatus Hotel</span>
         <span class="stop-time">12:00 - 14:00</span>
       </summary>
       <div class="stop-content">
@@ -283,7 +314,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🎡</span>Pier 60 & Clearwater Beach</span>
+        <span class="stop-title"><span>🎡</span> Pier 60 & Clearwater Beach</span>
         <span class="stop-time">14:00 - 16:00</span>
       </summary>
       <div class="stop-content">
@@ -298,11 +329,11 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏨</span>Rientro al Bilmar</span>
-        <span class="stop-time">16:30</span>
+        <span class="stop-title"><span>🌅</span> Rientro & Sloppy Joe's</span>
+        <span class="stop-time">16:30 - Sera</span>
       </summary>
       <div class="stop-content">
-        <p>Pomeriggio completamente libero da impegni: relax nella piscina del resort, tepore del tardo pomeriggio e tramonto spettacolare sull'oceano.</p>
+        <p>Rientro al Bilmar per relax in piscina e tramonto sul mare. Cena di Natale easy, informale e vista mare direttamente al <strong>Sloppy Joe's on the Beach</strong> dentro il resort.</p>
         <p class="distance-text">Distanza: 16.8 mi — 35 min</p>
         <div class="links">
           <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
@@ -314,11 +345,11 @@
 
   <!-- 26 DICEMBRE -->
   <details class="day-container">
-    <summary class="day-summary"><span>🏀</span>&nbsp;Venerdì 26 dic - Disney & NBA</summary>
+    <summary class="day-summary"><span>🏀</span> Venerdì 26 dic - Disney & NBA</summary>
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏖️</span>Ultimo bagno al Bilmar</span>
+        <span class="stop-title"><span>🏖️</span> Ultimo bagno al Bilmar</span>
         <span class="stop-time">08:00 - 09:45</span>
       </summary>
       <div class="stop-content">
@@ -333,11 +364,11 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏰</span>Disney Springs</span>
+        <span class="stop-title"><span>🏰</span> Disney Springs</span>
         <span class="stop-time">11:30 - 15:15</span>
       </summary>
       <div class="stop-content">
-        <p>Svago assoluto e shopping al LEGO Store e World of Disney. Pranzo veloce consigliato al D-Luxe Burger, Polite Pig o Blaze Pizza.</p>
+        <p>Svago assoluto e shopping al LEGO Store e World of Disney. Pranzo con i famosi hamburger al <strong>D-Luxe Burger</strong>.</p>
         <p class="distance-text">Distanza: 95.8 mi — 1h 35 min</p>
         <div class="links">
           <a href="https://www.google.com/maps/place/1486+Buena+Vista+Dr,+Orlando,+FL+32830" target="_blank">📍</a>
@@ -348,11 +379,11 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🛍️</span>Nike Clearance Store</span>
+        <span class="stop-title"><span>🛍️</span> Nike Clearance Store</span>
         <span class="stop-time">15:30 - 17:30</span>
       </summary>
       <div class="stop-content">
-        <p>Shopping focalizzato in questo store speciale per sconti formidabili. Segue cena veloce pre-partita. Tutti i pacchetti e zaini nascosti nel bagagliaio dell'auto prima di partire.</p>
+        <p>Shopping focalizzato in questo store speciale per sconti formidabili. Tutti i pacchetti e gli zaini vengono riposti e nascosti nel bagagliaio dell'auto prima di partire.</p>
         <p class="distance-text">Distanza: 8.5 mi — 15 min</p>
         <div class="links">
           <a href="https://www.google.com/maps/place/5209+International+Dr+Ste+A-C,+Orlando,+FL+32819" target="_blank">📍</a>
@@ -363,7 +394,22 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🅿️</span>Threatlocker Garage</span>
+        <span class="stop-title"><span>🥡</span> Publix (Cena Pre-partita)</span>
+        <span class="stop-time">17:30 - 18:00</span>
+      </summary>
+      <div class="stop-content">
+        <p>Sosta rapida per prendere i mitici <em>Pub Subs</em> o panini al volo da consumare prima di dirigersi a downtown.</p>
+        <p class="distance-text">Distanza: Vicino I-Drive</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/search/?api=1&query=Publix+Super+Market+Orlando+FL" target="_blank">📍</a>
+          <a href="https://www.publix.com" target="_blank">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🅿️</span> Threatlocker Garage</span>
         <span class="stop-time">18:00 - 18:15</span>
       </summary>
       <div class="stop-content">
@@ -377,7 +423,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏀</span>Kia Center (Magic vs Raptors)</span>
+        <span class="stop-title"><span>🏀</span> Kia Center (Magic vs Raptors)</span>
         <span class="stop-time">18:15 - 21:30</span>
       </summary>
       <div class="stop-content">
@@ -392,7 +438,7 @@
 
     <details class="stop-container">
       <summary class="stop-summary">
-        <span class="stop-title"><span>🏨</span>Baymont by Wyndham</span>
+        <span class="stop-title"><span>🏨</span> Baymont by Wyndham</span>
         <span class="stop-time">22:00</span>
       </summary>
       <div class="stop-content">
