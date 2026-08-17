@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Itinerario Florida 24-26 Dicembre</title>
+  <title>Itinerario Florida 24-27 Dicembre</title>
   <style>
     :root {
-      --bg-color: #f4f6f9;
+      --bg-gradient: linear-gradient(135deg, #fff5f0 0%, #e6f8f6 100%);
       --card-bg: #ffffff;
-      --text-main: #1c1c1e;
-      --text-sub: #5856d6;
-      --border-color: #e5e5ea;
-      --accent-florida: #ff6b35;
-      --accent-sun: #ffbc42;
-      --accent-palm: #2ec4b6;
+      --text-main: #1f2d3d;
+      --text-sub: #008080;
+      --border-color: #d1eae8;
+      
+      /* Palette Arancione & Tiffany */
+      --orange-main: #ff7e47;
+      --orange-light: #fff0eb;
+      --tiffany-main: #00a896;
+      --tiffany-light: #e6f8f6;
+      --gradient-orange-tiffany: linear-gradient(135deg, #ff7e47 0%, #00a896 100%);
+      --gradient-tiffany-orange: linear-gradient(135deg, #00a896 0%, #ff7e47 100%);
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(135deg, #f4f6f9 0%, #e9ecef 100%);
+      background: var(--bg-gradient);
       color: var(--text-main);
       margin: 0;
       padding: 16px;
-      line-height: 1.5;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
     h1 {
@@ -30,27 +36,33 @@
       font-size: 24px;
       margin-top: 12px;
       margin-bottom: 24px;
-      color: #0b2545;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      background: var(--gradient-orange-tiffany);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
     }
 
-    /* Stile per i contenitori dei giorni con richiamo ai colori Florida */
+    /* Contenitori dei Giorni con sfumature Arancione & Tiffany */
     .day-container {
       background-color: var(--card-bg);
       border-radius: 16px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(11, 37, 69, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 168, 150, 0.08);
       overflow: hidden;
-      border-left: 6px solid var(--accent-florida);
+      border-left: 6px solid var(--orange-main);
       transition: all 0.3s ease;
     }
 
     .day-container:nth-child(2) {
-      border-left-color: var(--accent-sun);
+      border-left-color: var(--tiffany-main);
     }
 
     .day-container:nth-child(3) {
-      border-left-color: var(--accent-palm);
+      border-left-color: var(--orange-main);
+    }
+
+    .day-container:nth-child(4) {
+      border-left-color: var(--tiffany-main);
     }
 
     .day-summary {
@@ -63,24 +75,24 @@
       align-items: center;
       gap: 12px;
       background-color: var(--card-bg);
-      color: #0b2545;
+      color: #113840;
     }
 
     .day-summary span {
-      font-size: 24px; /* Icone grandi */
+      font-size: 24px;
     }
 
     .day-summary::-webkit-details-marker {
       display: none;
     }
 
-    /* Stile per le singole tappe */
+    /* Singole tappe */
     .stop-container {
       margin: 0;
       border-radius: 0;
       box-shadow: none;
       border-top: 1px solid var(--border-color);
-      background-color: #fafbfc;
+      background-color: #fafdfd;
     }
 
     .stop-summary {
@@ -102,38 +114,39 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #1d3557;
+      color: #14454d;
     }
 
     .stop-title span:first-child {
-      font-size: 22px; /* Icone grandi per le tappe */
+      font-size: 22px;
       min-width: 28px;
       text-align: center;
     }
 
     .stop-time {
-      color: #e07a5f;
-      font-weight: 600;
+      color: var(--orange-main);
+      font-weight: 700;
       font-size: 13px;
-      background: #fef1ed;
-      padding: 4px 8px;
-      border-radius: 6px;
+      background: var(--orange-light);
+      padding: 4px 10px;
+      border-radius: 8px;
       white-space: nowrap;
       margin-left: 8px;
+      border: 1px solid rgba(255, 126, 71, 0.2);
     }
 
     /* Dettagli della tappa */
     .stop-content {
-      padding: 16px;
+      padding: 18px 16px;
       font-size: 14px;
-      color: #495057;
+      color: #334e52;
       background-color: var(--card-bg);
       border-top: 1px dashed var(--border-color);
     }
 
     .stop-content p {
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .stop-content p:last-of-type {
@@ -141,9 +154,14 @@
     }
 
     .distance-text {
-      color: #6c757d;
-      font-style: italic;
+      color: var(--tiffany-main);
+      font-weight: 600;
       font-size: 13px;
+      background-color: var(--tiffany-light);
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 4px;
     }
 
     .links {
@@ -155,18 +173,18 @@
 
     .links a {
       text-decoration: none;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease;
       display: inline-block;
     }
 
     .links a:hover {
-      transform: scale(1.15);
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
 
-  <h1>🌴 Itinerario Florida 24-26 Dicembre ☀️</h1>
+  <h1>🌴 Itinerario Florida 24-27 Dicembre ☀️</h1>
 
   <!-- 24 DICEMBRE -->
   <details class="day-container">
@@ -178,11 +196,11 @@
         <span class="stop-time">06:30 - 07:15</span>
       </summary>
       <div class="stop-content">
-        <p>Arrivo in aeroporto e ritiro rapido della vettura noleggiata presso lo sportello prioritario Budget Fastbreak, per ottimizzare i tempi e mettersi subito in marcia.</p>
-        <p class="distance-text">Distanza: --</p>
+        <p>Ritiro rapido della vettura noleggiata direttamente al Rental Car Center dell'aeroporto di Miami (MIA). Grazie al servizio prioritario Fastbreak, eviteremo le lunghe code allo sportello e potremo accedere subito al parcheggio per caricare i bagagli nel baule, avviare il navigatore e partire verso la costa del Golfo senza perdere tempo prezioso.</p>
+        <p class="distance-text">Distanza: Punto di partenza</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/Budget+Car+Rental,+Miami+International+Airport,+NW+21st+St,+Miami,+FL" target="_blank">📍</a>
-          <a href="https://www.budget.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/Budget+Car+Rental,+Miami+International+Airport,+NW+21st+St,+Miami,+FL" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.budget.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -193,11 +211,11 @@
         <span class="stop-time">07:30 - 08:15</span>
       </summary>
       <div class="stop-content">
-        <p>Sosta logistica per acquisto dell'alzatina (booster) auto, del setaccio (sand sifter) per i denti di squalo, oltre a una scorta di acqua e snack per il viaggio.</p>
+        <p>Prima tappa logistica fondamentale appena usciti dall'aeroporto. Acquisteremo subito l'alzatina (booster seat) per il viaggio in sicurezza di Alex, il setaccio da spiaggia (sand sifter) essenziale per la caccia ai denti di squalo, oltre a una prima capiente scorta d'acqua, snack freschi, frutta e bevande per sostenere la lunga guida sulla I-75 verso la costa occidentale.</p>
         <p class="distance-text">Distanza: 5.2 mi — 10 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/8651+NW+13th+Terrace,+Doral,+FL+33126" target="_blank">📍</a>
-          <a href="https://www.walmart.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/8651+NW+13th+Terrace,+Doral,+FL+33126" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.walmart.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -208,11 +226,11 @@
         <span class="stop-time">11:30 - 12:45</span>
       </summary>
       <div class="stop-content">
-        <p>Pausa pranzo rilassante dopo la guida sulla I-75. Un locale caratteristico, in perfetto stile tiki bar, situato direttamente sulle acque del fiume Manatee.</p>
+        <p>Meraviglioso e caratteristico tiki bar sul fiume Manatee, ideale per spezzare il viaggio con un pranzo rilassante. Offre un'atmosfera tropicale autentica con tavoli all'aperto, brezza fluviale e un menù ricco di specialità locali a base di pesce fresco, panini e piatti tipici americani, ideali per calarsi subito nel clima di vacanza.</p>
         <p class="distance-text">Distanza: 215 mi — 3h 15 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/5717+18th+St+E,+Ellenton,+FL+34222" target="_blank">📍</a>
-          <a href="https://www.woodysriverroo.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/5717+18th+St+E,+Ellenton,+FL+34222" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.woodysriverroo.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -223,11 +241,11 @@
         <span class="stop-time">12:50 - 14:30</span>
       </summary>
       <div class="stop-content">
-        <p>Tappa strategica per shopping al Nike Clearance Store e approfittare delle ampie toilette del centro per un comodo cambio d'abito in vista della Messa.</p>
+        <p>Tappa strategica a pochi minuti dal ristorante per fare una veloce sessione di shopping al Nike Clearance Store e approfittare delle ampie e pulite strutture del centro outlet per effettuare un comodo cambio d'abito della famiglia, sistemandosi con abiti eleganti e ordinati in vista della Messa di Natale.</p>
         <p class="distance-text">Distanza: 1.2 mi — 4 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/5461+Factory+Shops+Blvd,+Ellenton,+FL+34222" target="_blank">📍</a>
-          <a href="https://www.premiumoutlets.com/outlet/ellenton" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/5461+Factory+Shops+Blvd,+Ellenton,+FL+34222" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.premiumoutlets.com/outlet/ellenton" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -238,11 +256,11 @@
         <span class="stop-time">15:30 - 17:15</span>
       </summary>
       <div class="stop-content">
-        <p>Partecipazione alla sentita e suggestiva Messa della Vigilia di Natale delle ore 16:00. Arrivo anticipato per trovare parcheggio e posti a sedere.</p>
+        <p>Partecipazione alla toccante e suggestiva Messa della Vigilia di Natale delle ore 16:00 in questa accogliente parrocchia a pochi passi dall'oceano. L'arrivo è pianificato con ampio anticipo per garantire un parcheggio agevole nelle vicinanze e trovare posti a sedere comodi per tutta la famiglia.</p>
         <p class="distance-text">Distanza: 28.5 mi — 45 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/445+82nd+Ave,+St+Pete+Beach,+FL+33706" target="_blank">📍</a>
-          <a href="https://stjohnspetebeach.org" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/445+82nd+Ave,+St+Pete+Beach,+FL+33706" target="_blank" title="Mappa">📍</a>
+          <a href="https://stjohnspetebeach.org" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -253,11 +271,11 @@
         <span class="stop-time">17:25 - 18:15</span>
       </summary>
       <div class="stop-content">
-        <p>Sosta al banco gastronomia per acquistare piatti pronti di ottima qualità. Questa tappa garantisce una cena di Vigilia senza stress in camera. (Chiusura ore 19:00).</p>
+        <p>Sosta rapida al supermercato Publix prima della chiusura festiva delle ore 19:00. Faremo tappa al famoso reparto gastronomia per acquistare ottimi piatti pronti, pollo arrosto, insalate e prelibatezze calde, garantendo una cena di Vigilia informale, gustosa e senza alcuno stress direttamente nella nostra camera di resort.</p>
         <p class="distance-text">Distanza: 1.1 mi — 3 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/4655+Gulf+Blvd,+St+Pete+Beach,+FL+33706" target="_blank">📍</a>
-          <a href="https://www.publix.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/4655+Gulf+Blvd,+St+Pete+Beach,+FL+33706" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.publix.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -268,11 +286,11 @@
         <span class="stop-time">18:25</span>
       </summary>
       <div class="stop-content">
-        <p>Check-in in assoluta tranquillità, scarico dei bagagli in stanza e inizio della vera serata di vacanza a Treasure Island.</p>
+        <p>Check-in ufficiale nel nostro resort sul mare. Scaricheremo i bagagli in camera, sistemeremo la spesa di Publix e ci godremo una serata in totale relax ascoltando il suono delle onde, con passeggiata serale sulla spiaggia di Treasure Island per iniziare ufficialmente la vacanza.</p>
         <p class="distance-text">Distanza: 3.8 mi — 8 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
-          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -288,11 +306,11 @@
         <span class="stop-time">08:00 - 11:15</span>
       </summary>
       <div class="stop-content">
-        <p>Mattinata all'insegna della calma e della famiglia per festeggiare il Natale. Passeggiata sulla bellissima spiaggia di sabbia bianca e apertura dei regali.</p>
-        <p class="distance-text">Distanza: --</p>
+        <p>Risveglio lento e festoso nel giorno di Natale. Dedicheremo la mattinata all'apertura dei regali in camera, a una rigenerante colazione con vista mare e a una lunga passeggiata in famiglia sulla splendida spiaggia di sabbia finissima di Treasure Island per un primo bagno o per giocare tra le onde del Golfo del Messico.</p>
+        <p class="distance-text">Distanza: Sul posto</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
-          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -303,11 +321,11 @@
         <span class="stop-time">12:00 - 14:00</span>
       </summary>
       <div class="stop-content">
-        <p>Pranzo di Natale al 7° piano (Prenotazione OpenTable N. 35952). Tavolo all'aperto per gustare piatti a base di pesce con vista panoramica sul Golfo.</p>
+        <p>Esclusivo pranzo di Natale prenotato (OpenTable N. 35952) al ristorante panoramico al 7° piano del The Hiatus Hotel. Godremo di una vista mozzafiato a 180 gradi sull'Oceano Atlantico e sulla spiaggia di Clearwater, gustando un raffinato menù di mare e cocktail artigianali su una bellissima terrazza all'aperto.</p>
         <p class="distance-text">Distanza: 16.8 mi — 35 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/385+S+Gulfview+Blvd,+Clearwater,+FL+33767" target="_blank">📍</a>
-          <a href="https://www.hiatushotel.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/385+S+Gulfview+Blvd,+Clearwater,+FL+33767" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.hiatushotel.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -318,11 +336,11 @@
         <span class="stop-time">14:00 - 16:00</span>
       </summary>
       <div class="stop-content">
-        <p>Piacevole passeggiata digestiva sul celebre pontile Pier 60 e lungo l'iconico lungomare di Clearwater. Ottimo per respirare a pieni polmoni l'aria del mare.</p>
+        <p>Tradizionale passeggiata pomeridiana lungo l'iconico molo di Pier 60 e la vivace promenade di Clearwater Beach. Un'occasione unica per respirare l'atmosfera festiva della Florida tra artisti di strada, artigiani locali, aria salmastra e la magnifica sabbia bianca di quarzo famosa in tutto il mondo.</p>
         <p class="distance-text">Distanza: 0.5 mi — 2 min a piedi</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/1+Causeway+Blvd,+Clearwater,+FL+33767" target="_blank">📍</a>
-          <a href="https://www.surfsidesunsents.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/1+Causeway+Blvd,+Clearwater,+FL+33767" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.visitstpeteclearwater.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -333,11 +351,11 @@
         <span class="stop-time">16:30 - Sera</span>
       </summary>
       <div class="stop-content">
-        <p>Rientro al Bilmar per relax in piscina e tramonto sul mare. Cena di Natale easy, informale e vista mare direttamente al <strong>Sloppy Joe's on the Beach</strong> dentro il resort.</p>
+        <p>Rientro al resort nel tardo pomeriggio per godersi un fantastico tramonto sul mare direttamente dalla spiaggia. La cena di Natale proseguirà in perfetto stile caraibico al ristorante Sloppy Joe's situato all'interno del resort, con musica dal vivo, cocktail tropicali e cibo informale a due passi dalle onde.</p>
         <p class="distance-text">Distanza: 16.8 mi — 35 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
-          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.sloppyjoesonthebeach.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -353,11 +371,11 @@
         <span class="stop-time">08:00 - 09:45</span>
       </summary>
       <div class="stop-content">
-        <p>Ultimo bagno nell'oceano e colazione rigenerante. Entro le 09:45 completamento del check-out, carico accurato dei bagagli nel baule e partenza verso Orlando.</p>
-        <p class="distance-text">Distanza: --</p>
+        <p>Ultimo saluto alla costa del Golfo prima di spostarsi verso l'interno. Un bagno mattutino rinfrescante nelle acque del resort, seguito da una colazione abbondante, dal completamento delle valigie e dal check-out programmato entro le 09:45 per partire puntuali verso Orlando.</p>
+        <p class="distance-text">Distanza: Sul posto</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank">📍</a>
-          <a href="https://www.bilmarbeachresort.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/10650+Gulf+Blvd,+Treasure+Island,+FL+33706" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.bilmarbeachresort.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -368,11 +386,11 @@
         <span class="stop-time">11:30 - 13:15</span>
       </summary>
       <div class="stop-content">
-        <p>Arrivo a Disney Springs, passeggiata e shopping tra i negozi iconici come il LEGO Store e World of Disney.</p>
+        <p>Arrivo nel grande complesso d'intrattenimento all'aperto di Walt Disney World. Passeggiata immersiva tra le scenografie natalizie, con tappe imperdibili al World of Disney (il negozio Disney più grande del mondo) e al favoloso LEGO Store per esplorare le imponenti sculture di mattoncini.</p>
         <p class="distance-text">Distanza: 95.8 mi — 1h 35 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/1486+Buena+Vista+Dr,+Orlando,+FL+32830" target="_blank">📍</a>
-          <a href="https://www.disneysprings.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/1486+Buena+Vista+Dr,+Orlando,+FL+32830" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.disneysprings.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -383,11 +401,11 @@
         <span class="stop-time">13:15 - 14:30</span>
       </summary>
       <div class="stop-content">
-        <p>Pranzo gustoso a base di ottimi hamburger artigianali, patatine con salse sfiziose e gelati nel cuore di Disney Springs.</p>
+        <p>Sosta pranzo nel cuore di Disney Springs presso questo rinomato locale specializzato in burger gourmet preparati con carni selezionate, pane fatto in casa giornalmente, deliziose salse artigianali, patatine fritte croccanti e ricchi frappè per la gioia di grandi e piccini.</p>
         <p class="distance-text">Distanza: All'interno di Disney Springs</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/D-Luxe+Burger+Disney+Springs" target="_blank">📍</a>
-          <a href="https://disneyworld.disney.go.com/dining/disney-springs/d-luxe-burger/" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/D-Luxe+Burger+Disney+Springs" target="_blank" title="Mappa">📍</a>
+          <a href="https://disneyworld.disney.go.com/dining/disney-springs/d-luxe-burger/" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -398,11 +416,11 @@
         <span class="stop-time">15:30 - 17:30</span>
       </summary>
       <div class="stop-content">
-        <p>Shopping focalizzato in questo store speciale per sconti formidabili. Tutti i pacchetti e gli zaini vengono riposti e nascosti nel bagagliaio dell'auto prima di partire.</p>
+        <p>Tappa di shopping intensivo presso uno dei Nike Clearance Store più grandi e forniti dell'area di Orlando. Dedicheremo un paio d'ore alla ricerca di abbigliamento sportivo e sneakers a prezzi imbattibili, riponendo accuratamente tutti gli acquisti nel bagagliaio coperto dell'auto prima di muoverci.</p>
         <p class="distance-text">Distanza: 8.5 mi — 15 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/5209+International+Dr+Ste+A-C,+Orlando,+FL+32819" target="_blank">📍</a>
-          <a href="https://www.nike.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/5209+International+Dr+Ste+A-C,+Orlando,+FL+32819" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.nike.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -413,11 +431,11 @@
         <span class="stop-time">17:30 - 18:00</span>
       </summary>
       <div class="stop-content">
-        <p>Sosta rapida per prendere i mitici <em>Pub Subs</em> o panini al volo da consumare prima di dirigersi a downtown.</p>
+        <p>Sosta strategica vicino all'International Drive per acquistare i famosi panini espresso "Pub Subs" da gustare velocemente prima del grande evento serale, evitando così i costi elevati e le lunghe attese nei punti ristoro dell'arena.</p>
         <p class="distance-text">Distanza: Vicino I-Drive</p>
         <div class="links">
-          <a href="https://www.google.com/maps/search/?api=1&query=Publix+Super+Market+Orlando+FL" target="_blank">📍</a>
-          <a href="https://www.publix.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Publix+Super+Market+Orlando+FL" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.publix.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -428,10 +446,11 @@
         <span class="stop-time">18:00 - 18:15</span>
       </summary>
       <div class="stop-content">
-        <p>Arrivo e ingresso nel parcheggio prenotato (Riferimento: TL-122-14). Lasciate tutto in auto per una passeggiata di 5 minuti verso il palazzetto armati solo di biglietti.</p>
+        <p>Arrivo al garage coperto prenotato in anticipo (Riferimento: TL-122-14) situato nel cuore di Downtown Orlando. Parcheggio comodo e sicuro a soli 5 minuti a piedi dal palazzetto, ideale per lasciare ogni tipo di borsa ed effettivo personale al riparo in auto.</p>
         <p class="distance-text">Distanza: 9.2 mi — 20 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/122+S+Orange+Ave,+Orlando,+FL+32801" target="_blank">📍</a>
+          <a href="https://www.google.com/maps/place/122+S+Orange+Ave,+Orlando,+FL+32801" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.orlando.gov/Parking-Transportation" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -442,11 +461,11 @@
         <span class="stop-time">18:15 - 21:30</span>
       </summary>
       <div class="stop-content">
-        <p>Ingresso agevole grazie all'assenza di borse. Godetevi l'atmosfera vibrante del riscaldamento e l'intrattenimento pre-partita. Palla a due fissata per le 19:00.</p>
+        <p>Serata spettacolare al Kia Center per assistere alla partita NBA Orlando Magic contro Toronto Raptors. Accesso fluido e veloce senza borse al seguito, ingresso anticipato per vivere la magica atmosfera del riscaldamento dei campioni e intrattenimento spettacolare fino alla palla a due delle 19:00.</p>
         <p class="distance-text">Distanza: 0.3 mi — 5 min a piedi</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/400+W+Church+St,+Orlando,+FL+32801" target="_blank">📍</a>
-          <a href="https://www.kiacenter.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/400+W+Church+St,+Orlando,+FL+32801" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.kiacenter.com" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
@@ -457,11 +476,144 @@
         <span class="stop-time">22:00</span>
       </summary>
       <div class="stop-content">
-        <p>Recuperata l'auto dal garage, brevissimo tragitto verso l'hotel per effettuare il check-in notturno e scaricare finalmente le valigie per riposare.</p>
+        <p>Breve tragitto in auto dopo il termine della partita per raggiungere il nostro hotel ad Orlando. Check-in notturno rapido, scarico delle valigie e meritato riposo dopo una giornata ricca di emozioni e spostamenti.</p>
         <p class="distance-text">Distanza: 5.5 mi — 12 min</p>
         <div class="links">
-          <a href="https://www.google.com/maps/place/2500+W+33rd+St,+Orlando,+FL+32839" target="_blank">📍</a>
-          <a href="https://www.wyndhamhotels.com" target="_blank">🌐</a>
+          <a href="https://www.google.com/maps/place/2500+W+33rd+St,+Orlando,+FL+32839" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.wyndhamhotels.com" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+  </details>
+
+  <!-- 27 DICEMBRE -->
+  <details class="day-container">
+    <summary class="day-summary"><span>🐚</span> Sabato 27 dic - Shelling, Tiki Bar & Venice</summary>
+
+    <!-- Spiaggia 1 di 5 -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏖️</span> 1. Bridge Street / Cortez Beach</span>
+        <span class="stop-time">08:30 - 09:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Prima tappa della nostra giornata dedicata allo shelling partendo dal nord dell'isola di Anna Maria. Una piacevole passeggiata mattutina attorno al molo storico di Bridge Street e sulla spiaggia di Cortez Beach per cercare bivalvi, piccole telline e frammenti portati a riva dalle prime maree della giornata.</p>
+        <p class="distance-text">Distanza: 120 mi — 2h 00 min da Orlando</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/Bridge+Street,+Bradenton+Beach,+FL" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.visitbradentongulfislands.com" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Spiaggia 2 di 5 -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🐚</span> 2. Coquina Beach (South Access)</span>
+        <span class="stop-time">09:30 - 10:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Tratto di costa famoso per il suo fitto boschetto di pini australiani che offrono un'ombra naturale rigenerante. La spiaggia presenta un'ampia battigia ricca di depositi di sabbia bagnata dove è possibile trovare conchiglie a spirale, oliva shells e piccolissimi pettini di mare ben conservati.</p>
+        <p class="distance-text">Distanza: 1.2 mi — 3 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/Coquina+Beach,+Bradenton+Beach,+FL" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.mymanatee.org" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Spiaggia 3 di 5 -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🌊</span> 3. Lower Anna Maria Jetty / Pass</span>
+        <span class="stop-time">10:30 - 11:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Punta sud estrema dell'isola posizionata proprio all'imboccatura del Longboat Pass. Grazie al continuo flusso e riflusso delle correnti marine tra la baia e il Golfo, questa scogliera e la relativa insenatura sono rinomate per essere il punto più generoso in assoluto per la ricerca di conchiglie intere e rare.</p>
+        <p class="distance-text">Distanza: 0.8 mi — 2 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/Longboat+Pass,+Bradenton+Beach,+FL" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.visitbradentongulfislands.com" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Pranzo -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🍹</span> O'Leary's Tiki Bar & Grill</span>
+        <span class="stop-time">12:00 - 13:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Sosta pranzo caraibica direttamente sul waterfront del Bayfront Park di Sarasota. Ristorante all'aperto informale con pavimentazione in sabbia, ombrelloni di paglia e un'atmosfera spensierata dove gustare ottimi panini con pesce locale, fish and chips, burger e bevande rinfrescanti ammirando i moli e i panfili del porto.</p>
+        <p class="distance-text">Distanza: 20 mi — 35 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/5+Bayfront+Dr,+Sarasota,+FL+34236" target="_blank" title="Mappa">📍</a>
+          <a href="https://olearystikibar.com" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Spiaggia 4 di 5 -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🦈</span> 4. Turtle Beach (Siesta Key Sud)</span>
+        <span class="stop-time">14:00 - 16:00</span>
+      </summary>
+      <div class="stop-content">
+        <p>Situata nella parte meridionale di Siesta Key, questa spiaggia si distingue per la sua sabbia più scura, grossolana e ricca di frammenti calcarei. È una tappa privileged per continuare la raccolta di conchiglie meno comuni e iniziare a utilizzare i setacci sulla battigia alla ricerca dei primi fossili e denti di squalo.</p>
+        <p class="distance-text">Distanza: 10 mi — 20 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/8862+Midnight+Pass+Rd,+Sarasota,+FL+34242" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.scgov.net" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Spiaggia 5 di 5 -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🌅</span> 5. North Jetty Beach (Casey Key)</span>
+        <span class="stop-time">16:30 - 18:00</span>
+      </summary>
+      <div class="stop-content">
+        <p>Spettacolare lingua di terra che delimita l'ingresso della baia di Venice. Una passeggiata panoramica lungo il molo di molo in pietra e sulla spiaggia al tramonto offrirà viste straordinarie sulle acque del Golfo, la possibilità di avvistare delfini al largo e un ultimo sguardo mozzafiato al crepuscolo prima di raggiungere il centro città.</p>
+        <p class="distance-text">Distanza: 11 mi — 20 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/1000+S+Casey+Key+Rd,+Nokomis,+FL+34275" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.scgov.net" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Cena -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🍝</span> Cena nel Centro di Venice</span>
+        <span class="stop-time">18:30 - 20:30</span>
+      </summary>
+      <div class="stop-content">
+        <p>Deliziosa serata passeggiando nel curato centro storico di Venice lungo Miami Avenue. Cena d'eccellenza con opzione principale presso <strong>Made in Italy</strong> (autentica pizza al forno a legna, primi piatti della tradizione italiana e atmosfera calorosa) o in alternativa presso <strong>Abby's on Miami</strong> (accogliente bistrot locale con burger artigianali e specialità americane).</p>
+        <p class="distance-text">Distanza: 3.5 mi — 8 min</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/place/117+W+Venice+Ave,+Venice,+FL+34285" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.madeinitaly-venice.com" target="_blank" title="Sito Ufficiale">🌐</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- Hotel -->
+    <details class="stop-container">
+      <summary class="stop-summary">
+        <span class="stop-title"><span>🏨</span> Arrivo in Hotel a Venice</span>
+        <span class="stop-time">20:45</span>
+      </summary>
+      <div class="stop-content">
+        <p>Raggiungimento dell'hotel a Venice per effettuare il check-in e sistemare le valigie. Serata dedicata all'organizzazione dei setacci, dei secchielli e dell'attrezzatura da ricerca in vista della grande avventura del giorno successivo dedicata alla caccia ai denti di squalo a Caspersen Beach.</p>
+        <p class="distance-text">Distanza: Vicino al centro di Venice</p>
+        <div class="links">
+          <a href="https://www.google.com/maps/search/?api=1&query=Hotels+Venice+FL" target="_blank" title="Mappa">📍</a>
+          <a href="https://www.visitvenicefl.org" target="_blank" title="Sito Ufficiale">🌐</a>
         </div>
       </div>
     </details>
